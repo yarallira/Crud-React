@@ -22,13 +22,13 @@ export default class ListaProdutos extends Component {
 
     onClickDelete(produtoId) {
 
-        axios.delete(`http://localhost:3001/product/${produtoId}`).then(
+        axios.delete(`http://localhost:3002/product/${produtoId}`).then(
             (res) => {
                 console.log(res);
-                axios.get("http://localhost:3001/product/").then((res) => {
+                axios.get("http://localhost:3002/product/").then((res) => {
                     console.log(res)
-                    let ArrayTeste = res.data
-                    debugger
+                    //let ArrayTeste = res.data
+                    //debugger
                     this.props.atualizarListaProdutos(res.data)
                     console.log(this.state);
                 }).catch((error) => {

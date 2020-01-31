@@ -10,6 +10,15 @@ export default class FormProdutos extends Component {
 
     }
 
+    componentWillMount() {
+        axios.get("http://localhost:3002/product/").then((res) => {
+          this.props.atualizarListaProdutos(res.data)
+          console.log(this.state);
+        }).catch((error) => {
+          console.log(error);
+        });
+      }    
+
 
 
     onClickCadastro(e) {
@@ -28,10 +37,10 @@ export default class FormProdutos extends Component {
             price: this.props.produto.preco
         }
 
-        axios.post("http://localhost:3001/product/", body).then(
+        axios.post("http://localhost:3002/product/", body).then(
             (res) => {
                 console.log(res);
-                axios.get("http://localhost:3001/product/").then((res) => {
+                axios.get("http://localhost:3002/product/").then((res) => {
                     this.props.atualizarListaProdutos(res.data)
                     console.log(this.state);
                     this.props.LimparRegistros()
@@ -64,10 +73,10 @@ export default class FormProdutos extends Component {
             price: this.props.produto.preco
         }
 
-        axios.put(`http://localhost:3001/product/${this.props.produto.id}`, body).then(
+        axios.put(`http://localhost:3002/product/${this.props.produto.id}`, body).then(
             (res) => {
                 console.log(res);
-                axios.get("http://localhost:3001/product/").then((res) => {
+                axios.get("http://localhost:3002/product/").then((res) => {
                     this.props.atualizarListaProdutos(res.data)
                     console.log(this.state);
                     this.props.LimparRegistros()
@@ -88,12 +97,14 @@ export default class FormProdutos extends Component {
         return (
             <div>
                 <form className="produtos">
+                    <h1>Produtos</h1>
+                    <br/>
                     <label>Nome: </label>
                     <input onChange={(e) => this.onChangeNome(e)} type="nome" id="nome" nome="nome" value={this.props.produto.nome}></input>
                     <br /> <br />
                     <label>Preço: </label>
                     <input onChange={(e) => this.onChangePrice(e)} type="preco" id="preco" nome="preco" value={this.props.produto.preco}></input>
-                    <br />  <br />  <br />
+                    <br />  <br /> 
                     <button onClick={(e) => this.onClickCadastro(e)}>Confirmar cadastro</button>
                     <button onClick={(e) => this.onClickSalvarAtualização(e)} value={this.props.produto.id}>Salvar atualização</button>
 

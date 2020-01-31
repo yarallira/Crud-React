@@ -43,12 +43,12 @@ export default class FormFiltroProduto extends Component {
         return (
             <div>
                 <form className="filtroProduto">
-                    <br /> <br /> <br />
-                    <label>Informe o nome do produto para ser filtrado:</label>
+                    <br />
+                    <label>Nome:</label>
                     <input onChange={(e) => this.onChangeNomeFiltro(e)} type="filtarnome" id="filtarnome" nome="filtarnome" value={this.props.produto.nomeFiltro}></input>
                     <button onClick={(e) => this.onClickFiltrarNome(e)}> Filtrar </button>
                     <button>Pesquisar toda lista</button>
-                 
+                    <br /> <br />
                 </form>
             </div>
         )
