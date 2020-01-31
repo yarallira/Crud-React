@@ -3,17 +3,25 @@ import './Componentes/Clientes/css.css'
 import Produto from './Componentes/Produtos/Produto'
 import AppCliente from './Componentes/Clientes/AppCliente'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.min.css'
+import Menu from './template/menu'
+import Routes from './template/routes'
 
 class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
+      <div>
+        <BrowserRouter>
+          <Switch>         
             <Route exact path="/product" exact={true} component={Produto} />
             <Route exact path="/Cliente" component={AppCliente} />
-        </Switch>
-    </ BrowserRouter>
+            <Menu />
+            <Routes />
+          </Switch>
+        </ BrowserRouter>
+      </div>
     );
   }
 }

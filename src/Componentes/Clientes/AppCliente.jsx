@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import ListaClintes from './ListaClientes'
 import FormIncluirClientes from './FormIncluirClientes'
-import './css.css'
 
 export default class AppCliente extends Component {
   constructor(props) {
