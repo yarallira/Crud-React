@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ListaProdutos from './ListaProdutos'
 import FormProdutos from './FormProdutos'
 import FormFiltroProduto from './FormFiltroProduto'
-import axios from 'axios'
+import Menu from '../../template/menu'
+//import '../Clientes/css.css'
 
 export default class Produto extends Component {
     constructor(props) {
@@ -114,6 +115,7 @@ export default class Produto extends Component {
     render() {
         return (
             <div >
+                <Menu />
                 <FormProdutos atualizarListaProdutos={this.atualizarListaProdutos} produto={this.state.produto} onChangeNome={this.onChangeNome} onChangePrice={this.onChangePrice} LimparRegistros={this.LimparRegistros} />
                 <FormFiltroProduto atualizarListaProdutos={this.atualizarListaProdutos} listaProdutos={this.state.produtos} produto={this.state.produto} onChangeNomeFiltro={this.onChangeNomeFiltro} />
                 <ListaProdutos atualizarListaProdutos={this.atualizarListaProdutos} listaProdutos={this.state.produtos} editarproduto={this.EditarProduto} />

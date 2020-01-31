@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import ListaClintes from './ListaClientes'
 import FormIncluirClientes from './FormIncluirClientes'
+import Menu from '../../template/menu'
+//import './css.css'
 
 export default class AppCliente extends Component {
   constructor(props) {
@@ -142,6 +144,7 @@ export default class AppCliente extends Component {
   render() {
     return (
       <div >
+        <Menu />
         <FormIncluirClientes cliente={this.state.cliente} atualizarListaClientes={this.atualizarListaClientes} onChangeNome={this.onChangeNome} onChangeRg={this.onChangeRg}
          onChangeCpf={this.onChangeCpf} onChangeIdade={this.onChangeIdade} onChangeTelefone={this.onChangeTelefone} onChangeEmail={this.onChangeEmail}/>
         <ListaClintes cliente={this.state.cliente} atualizarListaClientes={this.atualizarListaClientes} listaClientes={this.state.clientes} onClickEditar={this.onClickEditar}/>
